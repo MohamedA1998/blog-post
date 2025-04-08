@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Authentication\AuthController;
 use App\Http\Controllers\Api\Authentication\RegisterController;
+use App\Http\Controllers\Api\PostsController;
 use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,7 @@ Route::prefix('auth')->group(function(){
 Route::apiResource('profile', ProfileController::class)
     ->only('index')
     ->middleware('auth:sanctum');
+
+    
+Route::apiResource('post', PostsController::class)->middleware('auth:sanctum');
 
